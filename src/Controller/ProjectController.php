@@ -1,5 +1,9 @@
 <?php
- 
+/**
+ * Desenvolvido com base no tutorial abaixo
+ * https://www.binaryboxtuts.com/php-tutorials/how-to-make-symfony-5-rest-api/?utm_source=rss&utm_medium=rss&utm_campaign=how-to-make-symfony-5-rest-api#Step_2_Install_Packages
+ * 
+ */
 namespace App\Controller;
  
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,6 +50,12 @@ class ProjectController extends AbstractController
         // var_dump($request->getContent());
 
         $project = new Project();
+        /**
+         * Acrescentado o pacote symfony-bundles/json-request-bundle
+         * https://packagist.org/packages/symfony-bundles/json-request-bundle
+         * composer req symfony-bundles/json-request-bundle
+         * Este pacote foi adicionado para usar diretamente a classe Request para acessar diretamente as chavez vindas do JSON
+         */
         $project->setName( $request->get('name') );
         $project->setDescription( $request->get('description') );
  
